@@ -3,6 +3,10 @@
 
 I plan to design and implement a MongoDB database to store the game item catalogs, user collection progress, and user data. I will employ CRUD operations to enable seamless management of game data, providing a seamless and intuitive user experience.
 
+![](https://github.com/jtnguyen45/stardew-valley-tracker/blob/main/public/images/homescreen.png)
+
+![](https://github.com/jtnguyen45/stardew-valley-tracker/blob/main/public/images/prototype.png)
+
 ## Technology Used
 - MongoDB
 - Express.js
