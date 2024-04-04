@@ -1,0 +1,60 @@
+:root {
+    --box-shadow: #8d8d8d;
+}
+
+body {
+  background-image: url(/images/landingBackground.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#landing-container {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 3vmin;
+  padding: 4vmin;
+  text-align: center;
+}
+
+#title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#title-container img {
+  height: 60px;
+}
+
+.landing-buttons-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-buttons-container button {
+  margin: 1vmin;
+  padding: 1.5vmin;
+  height: 5vmin;
+  border-radius: 1.5vmin;
+  border-width: 0;
+  background-color: #e0e8fe;
+  box-shadow: 0.3vmin 0.3vmin 0.3vmin var(--box-shadow);
+}
+
+.google-log-in {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #5df397 !important;
+}
+
+.google-log-in img {
+  height: 20px;
+  margin-right: 7px;
+}

@@ -1,17 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const bundlesSchema = new Schema({
+const bundleRoomsSchema = new Schema({
     name: {type: String},
-    bundleRoom: {type: String},
-    items: [{
+    bundles: [{
         type: Schema.Types.ObjectId,
-        ref: 'Item'
+        ref: 'Bundle'
     }],
-    numReq: {type: Number},
     reward: {type: String},
     complete: {type: Boolean},
     image: {type: String},
 });
 
-module.exports = mongoose.model('Bundle', bundlesSchema);
+module.exports = mongoose.model('BundleRoom', bundleRoomsSchema);

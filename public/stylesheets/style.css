@@ -10,23 +10,3 @@ header {
   display: flex;
   align-items: center;
 }
-
-.header-content {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.header-img {
-  height: 6vmin;
-  margin-right: 2vmin;
-}
-
-body {
-  margin: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
-}
