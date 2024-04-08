@@ -103,6 +103,17 @@ h1 {
   text-align: center;
 }
 
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 35%;
+  height: 50px;
+  background-image: url('/images/labelBanner.png');
+  background-size: 100% 100%;
+  background-position: center;
+}
+
 .bundle-rooms-container {
   display: grid;
   justify-content: center;
@@ -123,17 +134,39 @@ h1 {
   width: 100%;
 }
 
+#new-item-container {
+  margin: 10px 13%;
+  background-image: url('/images/widgetBackground.png');
+  background-size: 100% 100%;
+  background-position: center;
+}
+
 #new-item-form {
   display: grid;
   justify-content: center;
   grid-gap: 15px;
   grid-template-columns: repeat(2, minmax(auto, 22rem));
-  margin: 10px 13%;
-  padding: 25px;
-  background-color: pink;
+  padding: 30px;
 }
 
 #add-item-btn {
   width: 10vmin;
   padding: 5px 0;
+}
+
+.item-name {
+  text-transform: capitalize;
+}
+
+#all-items-container {
+  margin: 10px 7%;
+  background-image: url('/images/widgetBackground.png');
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+#all-items-table {
+  margin: 0 auto;
+  padding: 30px;
+  justify-content: center;
 }

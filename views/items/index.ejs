@@ -1,27 +1,34 @@
 <%- include('../partials/header') %>
 
-<h1><%= title %></h1>
+<div class="title-container">
+    <h1><%= title %></h1>
+</div>
+
 <a href="/items/new"><button>Add Item</button></a>
 
-<table>
-    <thead>
-        <tr>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Where to Find</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% items.forEach(function(item) { %>
+<div id="all-items-container">
+    <table id="all-items-table">
+        <thead>
             <tr>
-                <td><img src="/images/items/<%= item.image %>"></td>
-                <td><a href="/items/<%= item._id %>"><%= item.name %></a></td>
-                <td><%= item.desc %></td>
-                <td><%= item.where %></td>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Where to Find</th>
             </tr>
-        <% }); %>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            <% items.forEach(function(item) { %>
+                <tr>
+                    <td><img src="/images/items/<%= item.image %>"></td>
+                    <td><a href="/items/<%= item._id %>" class="item-name"><%= item.name %></a></td>
+                    <td><%= item.desc %></td>
+                    <td><%= item.where %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+
+
 
 <%- include('../partials/footer') %>
