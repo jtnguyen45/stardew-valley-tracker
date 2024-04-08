@@ -98,3 +98,42 @@ li.dropdown {
 li.login {
   float: right;
 }
+
+h1 {
+  text-align: center;
+}
+
+.bundle-rooms-container {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(3, 30%);
+  grid-template-rows: repeat(2, 45%);
+  background-color: pink;
+  width: 90%;
+  margin: 5vmin auto;
+}
+
+.room-container {
+  margin: 3vmin;
+  text-align: center;
+}
+
+.bundle-room-img {
+  width: 100%;
+}
+
+#new-item-form {
+  display: grid;
+  justify-content: center;
+  grid-gap: 15px;
+  grid-template-columns: repeat(2, minmax(auto, 22rem));
+  margin: 10px 13%;
+  padding: 25px;
+  background-color: pink;
+}
+
+#add-item-btn {
+  width: 10vmin;
+  padding: 5px 0;
+}
