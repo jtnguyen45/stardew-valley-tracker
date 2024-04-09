@@ -1,10 +1,15 @@
 <%- include('../partials/header') %>
 
-<h1><%= title %></h1>
-<p class="item-name">Name: <%= item.name %></p>
-<p>Description: <em><%= item.desc %></em></p>
-<p>Where to find: <%= item.where %></p>
-<p>Season: <%= item.season %></p>
-<img src="/images/items/<%= item.image %>">
+<div class="title-container">
+    <h2><%= title %></h2>
+</div>
+
+<div id="item-container">
+    <p class="item-name"><b>Name:</b> <%= item.name %></p>
+    <p><b>Description:</b> <em><%= item.desc %></em></p>
+    <p><b>Where to find:</b> <%= item.where %></p>
+    <p><b>Season:</b> <%= item.season %></p>
+    <img src="/images/items/<%= item.image %>">
+</div>
 
 <%- include('../partials/footer') %>

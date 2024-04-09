@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+
+<div class="title-container">
+    <h2><%= title %></h2>
+</div>
+
+<div id="bundle-container">
+    <img src="/images/bundles/<%= bundle.image %>" class="bundle-img">
+    <p>Name: <%= bundle.name %></p>
+    <p>Bundle Room: <%= bundle.bundleRoom %></p>
+    <p>Items:</p>
+    <ul>
+        <% bundle.items.forEach(item => { %>
+            <li><img src="/images/items/<%= item.image %>"><a href="/items/<%= item._id %>"><%= item.name %></a></li>
+        <% }); %>
+    </ul>
+    <p>Required: <%= bundle.numReq %></p>
+    <p>Reward: <%= bundle.reward %></p>
+</div>
+
+<%- include('../partials/footer') %>

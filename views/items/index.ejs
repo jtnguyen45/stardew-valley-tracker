@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <div class="title-container">
-    <h1><%= title %></h1>
+    <h2><%= title %></h2>
 </div>
 
 <a href="/items/new"><button>Add Item</button></a>
@@ -13,7 +13,6 @@
                 <th>Image</th>
                 <th>Name</th>
                 <th>Description</th>
-                <th>Where to Find</th>
             </tr>
         </thead>
         <tbody>
@@ -22,7 +21,6 @@
                     <td><img src="/images/items/<%= item.image %>"></td>
                     <td><a href="/items/<%= item._id %>" class="item-name"><%= item.name %></a></td>
                     <td><%= item.desc %></td>
-                    <td><%= item.where %></td>
                 </tr>
             <% }); %>
         </tbody>

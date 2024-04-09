@@ -8,7 +8,6 @@ const bundleRoomsSchema = new Schema({
         ref: 'Bundle'
     }],
     reward: {type: String},
-    complete: {type: Boolean},
     image: {type: String},
 });
 

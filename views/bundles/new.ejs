@@ -1,0 +1,38 @@
+<%- include('../partials/header') %>
+
+<div class="title-container">
+    <h2><%= title %></h2>
+</div>
+
+<div id="new-bundle-container">
+    <form id="new-bundle-form" action="/bundles" method="POST">
+        <label>Bundle Name: </label>
+        <input type="text" name="name">
+        <label>Bundle Room: </label>
+        <select name="bundleRoom">
+            <option value="Craft Room">Craft Room</option>
+            <option value="Pantry">Pantry</option>
+            <option value="Bulletin Board">Bulletin Board</option>
+            <option value="Fish Tank">Fish Tank</option>
+            <option value="Boiler Room">Boiler Room</option>
+            <option value="Vault">Vault</option>
+            <option value="None">None</option>
+        </select>
+        <label>Items: </label>
+        <select name="items[]" multiple>
+            <% items.forEach(item => { %>
+                <option value="<%= item._id %>"><%= item.name %></option>
+            <% }); %>
+        </select>
+        <label>Number of Items Required: </label>
+        <input type="number" name="numReq">
+        <label>Reward: </label>
+        <input type="text" name="reward">
+        <label>Image: </label>
+        <input type="text" name="image">
+        <br>
+        <input type="submit" value="Add Bundle">
+    </form>
+</div>
+
+<%- include('../partials/footer') %>
