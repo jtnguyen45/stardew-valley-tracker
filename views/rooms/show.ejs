@@ -1,13 +1,29 @@
 <%- include('../partials/header') %>
 
 <div class="title-container">
-    <h2><%= title %></h2>
+    <h2><%= room.name %></h2>
+</div>
+<div id="room-container">
+    <img src="/images/bundles/<%= room.image %>" class="room-img">
+    <p>Bundles:</p>
+    <table class="bundle-table">
+        <tr>
+            <% for (let i = 0; i < room.bundles.length; i++) { %>
+                <% if (i % 3 === 0) { %>
+                    </tr><tr>
+                <% } %>
+                <td>
+                    <a href="/bundles/<%= room.bundles[i]._id %>"><img src="/images/bundles/<%= room.bundles[i].image %>" class="bundle-img"></a>
+                    <p><%= room.bundles[i].name %></p>
+                </td>
+            <% } %>
+        </tr>
+    </table>
+    <p>Reward: <%= room.reward %></p>
+    <form action="/rooms/<%= room._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete Room</button>
+    </form>    
 </div>
 
-<p>Room: <%= room.name %></p>
-<p>Reward: <%= room.reward %></p>
-<form action="/rooms/<%= room._id %>?_method=DELETE" method="POST">
-    <button type="submit">Delete Room</button>
-</form>
 
 <%- include('../partials/footer') %>

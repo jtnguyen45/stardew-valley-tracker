@@ -188,7 +188,7 @@ h2 {
   border-spacing: 25px;
 }
 
-#item-container, #bundle-container {
+#item-container, #bundle-container, #room-container {
   margin: 0 30%;
   padding: 10px 25px;
   background-image: url('/images/widgetBackground.png');
@@ -196,10 +196,26 @@ h2 {
   background-position: center;
 }
 
-#bundle-container {
+#bundle-container, #room-container {
   text-align: center;
+}
+
+#room-container {
+  margin: 0 10% !important;
+  padding-bottom: 50px;
 }
 
 .bundle-img {
   margin-top: 30px;
+}
+
+.room-img {
+  margin-top: 60px;
+  width: 60%;
+}
+
+.bundle-table {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
 }

@@ -50,7 +50,7 @@ async function create(req, res) {
 }
 
 async function show(req, res) {
-    const room = await Room.findById(req.params.id);
+    const room = await Room.findById(req.params.id).populate('bundles');
     res.render('rooms/show', {title: 'Room Detail', room});
 }
 
