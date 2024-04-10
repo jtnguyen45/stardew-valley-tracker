@@ -20,6 +20,10 @@ const bundlesSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Item'
     }],
+    trackedItems :[{
+        type: Schema.Types.ObjectId,
+        ref: 'Item'
+    }],
     numReq: {
         type: Number,
         min: 1,

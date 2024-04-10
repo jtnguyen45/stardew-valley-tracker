@@ -14,7 +14,7 @@ const favoriteSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User',
         required: true
-      }
+    }
 });
 
 module.exports = mongoose.model('Favorite', favoriteSchema)
