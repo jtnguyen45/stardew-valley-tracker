@@ -5,7 +5,8 @@ module.exports = {
     home,
     new: newRoom,
     create,
-    show
+    show,
+    delete: deleteRoom,
 }
 
 async function home(req, res) {
@@ -51,4 +52,14 @@ async function create(req, res) {
 async function show(req, res) {
     const room = await Room.findById(req.params.id);
     res.render('rooms/show', {title: 'Room Detail', room});
+}
+
+async function deleteRoom(req, res) {
+    try {
+        await Room.findByIdAndDelete(req.params.id);
+        res.redirect('/rooms');
+    } catch (error) {
+        console.error(err);
+        res.redirect(`/rooms/${req.params.id}`);
+    }
 }

@@ -5,5 +5,9 @@
 </div>
 
 <p>Room: <%= room.name %></p>
+<p>Reward: <%= room.reward %></p>
+<form action="/rooms/<%= room._id %>?_method=DELETE" method="POST">
+    <button type="submit">Delete Room</button>
+</form>
 
 <%- include('../partials/footer') %>
