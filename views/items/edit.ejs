@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+
+<div class="title-container">
+    <h2><%= title %></h2>
+</div>
+
+<form action="/items/<%= item._id %>?_method=PUT" method="POST">
+    <label>Name: </label>
+    <input name="name" value="<%= item.name %>">
+    <label>Desc: </label>
+    <textarea id="desc" name="desc" rows="4"><%= item.desc %></textarea>
+    <label for="where">Where to find (separated by commas):</label>
+    <textarea id="where" name="where" rows="4"><%= item.where.join(', ') %></textarea>
+    <input type="submit" value="Update Item">
+</form>
+
+<%- include('../partials/footer') %>

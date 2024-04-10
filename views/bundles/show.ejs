@@ -29,6 +29,14 @@
                             <p>x99</p>
                         <% } %>
                     <% } %>
+                    <% if (bundle.name === "Adventurer's Bundle") { %>
+                        <% if (bundle.items[i].name === "slime") { %>
+                            <p>x99</p>
+                        <% } %>
+                        <% if (bundle.items[i].name === "bat wing") { %>
+                            <p>x10</p>
+                        <% } %>
+                    <% } %>
                 </td>
             <% } %>
         </tr>

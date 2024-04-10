@@ -6,6 +6,8 @@ module.exports = {
     create,
     show,
     delete: deleteItem,
+    edit,
+    update,
 }
 
 async function index(req, res){
@@ -47,6 +49,32 @@ async function deleteItem(req, res) {
         res.redirect('/items');
     } catch (error) {
         console.error(err);
+        res.redirect(`/items/${req.params.id}`);
+    }
+}
+
+async function edit(req, res) {
+    try {
+        const item = await Item.findById(req.params.id);
+        res.render('items/edit', {title: 'Edit Item', item});
+    } catch (error) {
+        console.error(error);
+        res.redirect('/items');
+    }
+}
+
+async function update(req, res) {
+    try {
+        const itemId = req.params.id;
+        const updatedItemData = {
+            name: req.body.name,
+            desc: req.body.desc,
+        };
+
+        const updatedItem = await Item.findByIdAndUpdate(itemId, updatedItemData, { new: true });
+        res.redirect(`/items/${updatedItem._id}`);
+    } catch (error) {
+        console.error(error);
         res.redirect(`/items/${req.params.id}`);
     }
 }
