@@ -11,6 +11,7 @@
             <th>Image</th>
             <th>Name</th>
             <th>Reward</th>
+            <th>Room</th>
         </thead>
         <tbody>
             <% bundles.forEach(function(bundle) { %>
@@ -18,6 +19,7 @@
                 <td><a href="/bundles/<%= bundle._id %>"><img src="/images/bundles/<%= bundle.image %>"></a></td>
                 <td><a href="/bundles/<%= bundle._id %>"><%= bundle.name %></a></td>
                 <td><%= bundle.reward %></td>
+                <td><%= bundle.bundleRoom %></td>
             </tr>
             <% }); %>
         </tbody>

@@ -18,7 +18,7 @@
         <tbody>
             <% items.forEach(function(item) { %>
                 <tr>
-                    <td><img src="/images/items/<%= item.image %>"></td>
+                    <td><a href="/items/<%= item._id %>"><img src="/images/items/<%= item.image %>"></a></td>
                     <td><a href="/items/<%= item._id %>" class="item-name"><%= item.name %></a></td>
                     <td><%= item.desc %></td>
                 </tr>

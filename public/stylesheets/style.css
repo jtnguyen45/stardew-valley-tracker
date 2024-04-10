@@ -178,11 +178,12 @@ h2 {
   background-image: url('/images/widgetBackground.png');
   background-size: 100% 100%;
   background-position: center;
+  clip-path: inset(60px 0 60px 0);
 }
 
 #all-items-table {
   margin: 0 auto;
-  padding: 30px;
+  padding: 120px 30px;
   justify-content: center;
   border-collapse: separate;
   border-spacing: 25px;
@@ -214,7 +215,7 @@ h2 {
   width: 60%;
 }
 
-.bundle-table {
+.bundle-table, .item-table {
   display: flex;
   justify-content: center;
   font-size: 14px;

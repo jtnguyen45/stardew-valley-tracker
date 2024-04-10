@@ -9,11 +9,31 @@
     <p>Name: <%= bundle.name %></p>
     <p>Bundle Room: <%= bundle.bundleRoom %></p>
     <p>Items:</p>
-    <ul>
-        <% bundle.items.forEach(item => { %>
-            <li><img src="/images/items/<%= item.image %>"><a href="/items/<%= item._id %>"><%= item.name %></a></li>
-        <% }); %>
-    </ul>
+
+    <table class="item-table">
+        <tr>
+            <% for (let i = 0; i < bundle.items.length; i++) { %>
+                <% if (i % 4 === 0) { %>
+                    </tr><tr>
+                <% } %>
+                <td>
+                    <a href="/items/<%= bundle.items[i]._id %>"><img src="/images/items/<%= bundle.items[i].image %>" class="item-img"></a>
+                    <p><%= bundle.items[i].name %></p>
+                    <% if (bundle.name === "Quality Crops Bundle") { %>
+                        <p>x5 (gold quality)</p>
+                    <% } %>
+                    <% if (bundle.name === "Construction Bundle") { %>
+                        <% if (bundle.items[i].name === "hardwood") { %>
+                            <p>x10</p>
+                        <% } else { %>
+                            <p>x99</p>
+                        <% } %>
+                    <% } %>
+                </td>
+            <% } %>
+        </tr>
+    </table>
+
     <p>Required: <%= bundle.numReq %></p>
     <p>Reward: <%= bundle.reward %></p>
 
