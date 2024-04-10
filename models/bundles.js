@@ -26,7 +26,10 @@ const bundlesSchema = new Schema({
         max: 8
     },
     reward: {type: String},
-    image: {type: String},
+    image: {
+        type: String,
+        default: 'mysteryBundle.png'
+    },
 });
 
 module.exports = mongoose.model('Bundle', bundlesSchema);

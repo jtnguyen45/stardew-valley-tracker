@@ -6,6 +6,7 @@ module.exports = {
     new: newBundle,
     create,
     show,
+    delete: deleteBundle,
 }
 
 async function index(req, res){
@@ -17,9 +18,9 @@ async function newBundle(req, res) {
     try {
         const items = await Item.find({});
         res.render('bundles/new', { title: 'Add Bundle', errorMsg: '', items: items });
-    } catch (err) {
-        console.log(err);
-        res.render('bundles/new', { errorMsg: err.message });
+    } catch (error) {
+        console.log(error);
+        res.render('bundles/new', { errorMsg: error.message });
     }
 }
 
@@ -44,13 +45,23 @@ async function create(req, res) {
 
         const bundle = await Bundle.create(bundleData);
         res.redirect(`/bundles/${bundle.id}`);
-    } catch (err) {
-        console.log(err);
-        res.render('bundles/new', { errorMsg: err.message });
+    } catch (error) {
+        console.log(error);
+        res.render('bundles/new', { errorMsg: error.message });
     }
 }
 
 async function show(req, res) {
     const bundle = await Bundle.findById(req.params.id).populate('items');
     res.render('bundles/show', {title: 'Bundle Detail', bundle});
+}
+
+async function deleteBundle(req, res) {
+    try {
+        await Bundle.findByIdAndDelete(req.params.id);
+        res.redirect('/bundles');
+    } catch (error) {
+        console.error(error);
+        res.redirect(`/bundles/${req.params.id}`);
+    }
 }
