@@ -19,7 +19,8 @@ function newItem(req, res) {
 async function create(req, res) {
     for (let key in req.body) {
         if (req.body[key] === '') delete req.body[key];
-      }
+    }
+    
     try {
         const item = await Item.create(req.body);
         res.redirect(`/items/${item.id}`);

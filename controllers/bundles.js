@@ -6,7 +6,6 @@ module.exports = {
     new: newBundle,
     create,
     show,
-    home,
 }
 
 async function index(req, res){
@@ -54,9 +53,4 @@ async function create(req, res) {
 async function show(req, res) {
     const bundle = await Bundle.findById(req.params.id).populate('items');
     res.render('bundles/show', {title: 'Bundle Detail', bundle});
-}
-
-async function home(req, res) {
-    const bundles = await Bundle.find({});
-    res.render('bundles/home', {title: 'Bundle Rooms', bundles});
 }

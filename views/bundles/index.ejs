@@ -5,4 +5,23 @@
 </div>
 <a href="/bundles/new"><button>Add Bundle</button></a>
 
+<div>
+    <table>
+        <thead>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Reward</th>
+        </thead>
+        <tbody>
+            <% bundles.forEach(function(bundle) { %>
+            <tr>
+                <td><img src="/images/bundles/<%= bundle.image %>"></td>
+                <td><a href="/bundles/<%= bundle._id %>"><%= bundle.name %></a></td>
+                <td><%= bundle.reward %></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+
 <%- include('../partials/footer') %>

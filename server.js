@@ -13,8 +13,9 @@ require('./config/passport');
 
 const landingRouter = require('./routes/landing');
 const homeRouter = require('./routes/home');
+const roomsRouter = require('./routes/rooms');
 const bundlesRouter = require('./routes/bundles');
-const itemsRouter = require('./routes/items')
+const itemsRouter = require('./routes/items');
 
 const app = express();
 
@@ -45,6 +46,7 @@ app.use(function (req, res, next) {
 
 app.use('/', landingRouter);
 app.use('/home', homeRouter);
+app.use('/rooms', roomsRouter);
 app.use('/bundles', bundlesRouter);
 app.use('/items', itemsRouter);
 
