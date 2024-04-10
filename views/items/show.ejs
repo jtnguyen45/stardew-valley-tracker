@@ -7,7 +7,12 @@
 <div id="item-container">
     <p class="item-name"><b>Name:</b> <%= item.name %></p>
     <p><b>Description:</b> <em><%= item.desc %></em></p>
-    <p><b>Where to find:</b> <%= item.where %></p>
+    <p><b>Where to find:</b></p>
+    <ul>
+        <% item.where.forEach(function(w) { %>
+            <li><%= w %></li>
+        <% }); %>
+    </ul>
     <p><b>Season:</b> <%= item.season %></p>
     <img src="/images/items/<%= item.image %>">
     <form action="/items/<%= item._id %>?_method=DELETE" method="POST">
