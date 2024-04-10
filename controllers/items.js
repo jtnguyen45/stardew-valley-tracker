@@ -5,6 +5,7 @@ module.exports = {
     new: newItem,
     create,
     show,
+    delete: deleteItem,
 }
 
 async function index(req, res){
@@ -20,7 +21,7 @@ async function create(req, res) {
     for (let key in req.body) {
         if (req.body[key] === '') delete req.body[key];
     }
-    
+
     try {
         const item = await Item.create(req.body);
         res.redirect(`/items/${item.id}`);
@@ -33,4 +34,14 @@ async function create(req, res) {
 async function show(req, res) {
     const item = await Item.findById(req.params.id);
     res.render('items/show', {title: 'Item Detail', item});
+}
+
+async function deleteItem(req, res) {
+    try {
+        await Item.findByIdAndDelete(req.params.id);
+        res.redirect('/items');
+    } catch (error) {
+        console.error(err);
+        res.redirect(`/items/${req.params.id}`);
+    }
 }

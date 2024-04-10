@@ -10,6 +10,9 @@
     <p><b>Where to find:</b> <%= item.where %></p>
     <p><b>Season:</b> <%= item.season %></p>
     <img src="/images/items/<%= item.image %>">
+    <form action="/items/<%= item._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete Item</button>
+    </form>
 </div>
 
 <%- include('../partials/footer') %>
