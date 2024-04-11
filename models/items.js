@@ -17,6 +17,11 @@ const itemSchema = new Schema({
         type: String,
         default: 'mysteryItem.png'
     },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    }
 });
 
 module.exports = mongoose.model('Item', itemSchema);

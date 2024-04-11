@@ -3,10 +3,15 @@
 <div class="title-container">
     <h2><%= title %></h2>
 </div>
-<a href="/bundles/new"><button>Add Bundle</button></a>
 
-<div>
-    <table>
+<div class="btn-container">
+    <% if (user) { %>
+        <a href="/bundles/new" class="new-item-btn"><button>Add Bundle</button></a>
+    <% } %>
+</div>
+
+<div id="all-bundles-container">
+    <table id="all-bundles-table">
         <thead>
             <th>Image</th>
             <th>Name</th>
@@ -14,13 +19,17 @@
             <th>Room</th>
         </thead>
         <tbody>
-            <% bundles.forEach(function(bundle) { %>
-            <tr>
+            <% bundles.forEach(function(bundle, index) { %>
+                <% if (index % 2 === 0) { %>
+                    <tr>
+                <% } %>
                 <td><a href="/bundles/<%= bundle._id %>"><img src="/images/bundles/<%= bundle.image %>"></a></td>
                 <td><a href="/bundles/<%= bundle._id %>"><%= bundle.name %></a></td>
                 <td><%= bundle.reward %></td>
                 <td><%= bundle.bundleRoom %></td>
-            </tr>
+                <% if (index % 2 === 1 || index === bundles.length - 1) { %>
+                    </tr>
+                <% } %>
             <% }); %>
         </tbody>
     </table>

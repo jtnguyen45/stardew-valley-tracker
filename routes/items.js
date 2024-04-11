@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const itemsCtrl = require('../controllers/items');
+const ensureLoggedIn = require('../config/ensureLoggedIn');
 
 router.get('/', itemsCtrl.index);
-router.get('/new', itemsCtrl.new);
+router.get('/new', ensureLoggedIn, itemsCtrl.new);
 router.get('/:id', itemsCtrl.show);
-router.post('/', itemsCtrl.create);
-router.get('/edit/:id', itemsCtrl.edit);
-router.put('/:id', itemsCtrl.update);
-router.delete('/:id', itemsCtrl.delete);
+router.post('/', ensureLoggedIn, itemsCtrl.create);
+router.get('/edit/:id', ensureLoggedIn, itemsCtrl.edit);
+router.put('/:id', ensureLoggedIn, itemsCtrl.update);
+router.delete('/:id', ensureLoggedIn, itemsCtrl.delete);
 
 module.exports = router;

@@ -10,6 +10,7 @@ body {
   height: 100vh;
   margin: 0 auto;
   background-color: #f0fbff;
+  cursor: url(/images/cursors/sdvCursor.png), auto;
 }
 
 header {
@@ -35,6 +36,10 @@ header::before {
   background-size: cover;
   background-position: center 80%;
   opacity: 0.7;
+}
+
+a:hover, button:hover {
+  cursor: url(/images/cursors/sdvHoverCursor.png), auto;
 }
 
 .header-content {
@@ -179,15 +184,31 @@ h2 {
   background-image: url('/images/widgetBackground.png');
   background-size: 100% 100%;
   background-position: center;
-  clip-path: inset(80px 0 80px 0);
+  clip-path: inset(100px 0 100px 0);
+}
+
+#all-bundles-container {
+  margin: 10px 10%;
+  background-image: url('/images/widgetBackground.png');
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+#all-bundles-container img {
+  width: 100px;
 }
 
 #all-items-table {
   margin: 0 auto;
-  padding: 150px 30px;
+  padding: 180px 30px;
   justify-content: center;
   border-collapse: separate;
   border-spacing: 25px;
+}
+
+#all-bundles-table {
+  margin: 0 auto;
+  padding: 60px 30px;
 }
 
 #item-container, #bundle-container, #room-container {
@@ -254,7 +275,6 @@ h2 {
 }
 
 .new-item-btn button:hover {
-  cursor: pointer;
   transform: translateY(-0.5vmin);
 }
 

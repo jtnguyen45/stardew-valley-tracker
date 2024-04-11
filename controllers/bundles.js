@@ -35,6 +35,7 @@ async function create(req, res) {
         const itemIds = req.body['items[]'] || [];
         const items = await Promise.all(itemIds.map(itemId => Item.findById(itemId)));
         const itemObjectIds = items.map(item => item._id);
+        req.body.user = req.user._id;
 
         const bundleData = {
             name: req.body.name,
@@ -42,7 +43,8 @@ async function create(req, res) {
             items: itemObjectIds,
             numReq: req.body.numReq,
             reward: req.body.reward,
-            image: req.body.image
+            image: req.body.image,
+            user: req.body.user,
         }
 
         const bundle = await Bundle.create(bundleData);

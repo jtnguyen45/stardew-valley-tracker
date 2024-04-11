@@ -20,10 +20,12 @@
     <p><b>Season:</b> <%= item.season %></p>
     
     <div class="edit-delete-container">
-        <a href="/items/edit/<%= item._id %>"><button>Edit Item</button></a>
-        <form action="/items/<%= item._id %>?_method=DELETE" method="POST">
-            <button type="submit">Delete Item</button>
-        </form>
+        <% if (user?._id.equals(item.user)) { %>
+            <a href="/items/edit/<%= item._id %>"><button>Edit Item</button></a>
+            <form action="/items/<%= item._id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete Item</button>
+            </form>
+        <% } %>
     </div>
 </div>
 

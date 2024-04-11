@@ -22,10 +22,12 @@
     <p>Reward: <%= room.reward %></p>
 
     <div class="edit-delete-container">
-        <a href="/rooms/edit/<%= room._id %>"><button>Edit Room</button></a>
-        <form action="/rooms/<%= room._id %>?_method=DELETE" method="POST">
-            <button type="submit">Delete Room</button>
-        </form>
+        <% if (user?._id.equals(room.user)) { %>
+            <a href="/rooms/edit/<%= room._id %>"><button>Edit Room</button></a>
+            <form action="/rooms/<%= room._id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete Room</button>
+            </form>
+        <% } %>
     </div>
 
 </div>

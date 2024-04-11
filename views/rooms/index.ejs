@@ -5,7 +5,9 @@
 </div>
 
 <div class="btn-container">
-    <a href="/bundles/new" class="new-item-btn"><button>Add Bundle</button></a>
+    <% if (user) { %>
+        <a href="/bundles/new" class="new-item-btn"><button>Add Bundle</button></a>
+    <% } %>
     <a href="/bundles" class="new-item-btn"><button>All Bundles</button></a>
 </div>
 

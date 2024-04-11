@@ -24,9 +24,10 @@ async function create(req, res) {
         if (req.body[key] === '') delete req.body[key];
     }
 
+    req.body.user = req.user._id;
     req.body.where = req.body.where.trim();
     if (req.body.where) req.body.where = req.body.where.split(/\s*,\s*/);
-    
+
     try {
         const item = await Item.create(req.body);
         res.redirect(`/items/${item.id}`);

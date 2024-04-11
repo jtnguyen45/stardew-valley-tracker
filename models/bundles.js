@@ -34,6 +34,11 @@ const bundlesSchema = new Schema({
         type: String,
         default: 'mysteryBundle.png'
     },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    }
 });
 
 module.exports = mongoose.model('Bundle', bundlesSchema);

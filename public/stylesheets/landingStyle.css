@@ -12,6 +12,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: url(/images/cursors/sdvCursor.png), auto;
 }
 
 #landing-container {
@@ -66,6 +67,6 @@ p {
 }
 
 button:hover {
-  cursor: pointer;
+  cursor: url(/images/cursors/sdvHoverCursor.png), auto;
   transform: translateY(-0.5vmin);
 }

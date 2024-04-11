@@ -33,12 +33,14 @@ async function create(req, res) {
         const bundleIds = req.body['bundles[]'] || [];
         const bundles = await Promise.all(bundleIds.map(bundleId => Bundle.findById(bundleId)));
         const bundleObjectIds = bundles.map(bundle => bundle._id);
+        req.body.user = req.user._id;
 
         const roomData = {
             name: req.body.name,
             bundles: bundleObjectIds,
             reward: req.body.reward,
-            image: req.body.image
+            image: req.body.image,
+            user: req.body.user,
         }
 
         const room = await Room.create(roomData);
