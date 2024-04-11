@@ -68,6 +68,8 @@ async function update(req, res) {
         const updatedItemData = {
             name: req.body.name,
             desc: req.body.desc,
+            where: req.body.where.split(',').map(str => str.trim()),
+            season: req.body.season,
         };
 
         const updatedItem = await Item.findByIdAndUpdate(itemId, updatedItemData, { new: true });

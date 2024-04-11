@@ -4,14 +4,27 @@
     <h2><%= title %></h2>
 </div>
 
-<form action="/items/<%= item._id %>?_method=PUT" method="POST">
-    <label>Name: </label>
-    <input name="name" value="<%= item.name %>">
-    <label>Desc: </label>
-    <textarea id="desc" name="desc" rows="4"><%= item.desc %></textarea>
-    <label for="where">Where to find (separated by commas):</label>
-    <textarea id="where" name="where" rows="4"><%= item.where.join(', ') %></textarea>
-    <input type="submit" value="Update Item">
-</form>
+<div class="item-container">
+    <form class="item-form" action="/items/<%= item._id %>?_method=PUT" method="POST">
+        <label>Name: </label>
+        <input name="name" value="<%= item.name %>">
+        <label>Desc: </label>
+        <textarea id="desc" name="desc" rows="4"><%= item.desc %></textarea>
+        <label for="where">Where to find (separated by commas):</label>
+        <textarea id="where" name="where" rows="4"><%= item.where.join(', ') %></textarea>
+        <label>Season: </label>
+        <select name="season">
+            <option value="Spring" <%= item.season === 'Spring' ? 'selected' : '' %>>Spring</option>
+            <option value="Summer" <%= item.season === 'Summer' ? 'selected' : '' %>>Summer</option>
+            <option value="Fall" <%= item.season === 'Fall' ? 'selected' : '' %>>Fall</option>
+            <option value="Winter" <%= item.season === 'Winter' ? 'selected' : '' %>>Winter</option>
+            <option value="Any" <%= item.season === 'Any' ? 'selected' : '' %>>Any</option>
+        </select>
+        <br>
+        <input type="submit" value="Update Item">
+    </form>
+</div>
+
+
 
 <%- include('../partials/footer') %>
