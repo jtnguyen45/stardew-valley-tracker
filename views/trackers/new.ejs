@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+
+<div class="title-container">
+    <h2><%= title %></h2>
+</div>
+
+<div>
+    <form id="new-tracker-form" action="/trackers" method="POST">
+        <label>Name: </label>
+        <input type="text" name="name">
+        <label>Bundles: </label>
+        <select name="bundles[]" multiple>
+            <% bundles.forEach(bundle => { %>
+                <option value="<%= bundle._id %>"><%= bundle.name %></option>
+            <% }); %>
+        </select>
+        <input type="submit">
+    </form>
+</div>
+
+<%- include('../partials/footer') %>

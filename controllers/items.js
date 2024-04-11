@@ -23,12 +23,10 @@ async function create(req, res) {
     for (let key in req.body) {
         if (req.body[key] === '') delete req.body[key];
     }
-    console.log("Before trim: ", req.body.where)
-    req.body.where = req.body.where.trim();
-    console.log("After trim: ", req.body.where);
-    if (req.body.where) req.body.where = req.body.where.split(/\s*,\s*/);
-    console.log("After split (should be array): ", req.body.where);
 
+    req.body.where = req.body.where.trim();
+    if (req.body.where) req.body.where = req.body.where.split(/\s*,\s*/);
+    
     try {
         const item = await Item.create(req.body);
         res.redirect(`/items/${item.id}`);

@@ -1,0 +1,37 @@
+<%- include('../partials/header') %>
+
+<div class="title-container">
+    <h2><%= title %></h2>
+</div>
+
+<div>
+    <h3><%= tracker.name %></h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Bundle</th>
+                <th>Items Left</th>
+                <th>Required Left</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% tracker.bundles.forEach(function(bundle) { %>
+                <tr>
+                    <th><img src="/images/bundles/<%= bundle.image %>"></th>
+                    <th>
+                        <% bundle.items.forEach(function(item) { %>
+                            <% if (!bundle.trackedItems.includes(item._id)) { %>
+                                <img src="/images/items/<%= item.image %>">
+                            <% } %>
+                        <% }); %>
+                    </th>
+                    <th><%= bundle.numReq %></th>
+                    <th>Edit</th>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+
+<%- include('../partials/footer') %>

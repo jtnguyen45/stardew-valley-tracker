@@ -5,7 +5,10 @@
 </div>
 
 <div id="item-container">
-    <img src="/images/items/<%= item.image %>">
+    <div class="item-img-container">
+        <img src="/images/items/<%= item.image %>">
+    </div>
+    
     <p class="item-name"><b>Name:</b> <%= item.name %></p>
     <p><b>Description:</b> <em><%= item.desc %></em></p>
     <p><b>Where to find:</b></p>

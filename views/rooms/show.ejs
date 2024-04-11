@@ -20,9 +20,14 @@
         </tr>
     </table>
     <p>Reward: <%= room.reward %></p>
-    <form action="/rooms/<%= room._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete Room</button>
-    </form>    
+
+    <div class="edit-delete-container">
+        <a href="/rooms/edit/<%= room._id %>"><button>Edit Room</button></a>
+        <form action="/rooms/<%= room._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete Room</button>
+        </form>
+    </div>
+
 </div>
 
 

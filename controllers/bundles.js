@@ -1,5 +1,5 @@
 const Bundle = require('../models/bundles');
-const Item = require('../models/items')
+const Item = require('../models/items');
 
 module.exports = {
     index,
@@ -7,6 +7,8 @@ module.exports = {
     create,
     show,
     delete: deleteBundle,
+    edit,
+    update,
 }
 
 async function index(req, res){
@@ -60,6 +62,32 @@ async function deleteBundle(req, res) {
     try {
         await Bundle.findByIdAndDelete(req.params.id);
         res.redirect('/bundles');
+    } catch (error) {
+        console.error(error);
+        res.redirect(`/bundles/${req.params.id}`);
+    }
+}
+
+async function edit(req, res) {
+    try {
+        const bundle = await Bundle.findById(req.params.id);
+        res.render('bundles/edit', {title: 'Edit Bundle', bundle});
+    } catch (error) {
+        console.error(error);
+        res.redirect('/bundles');
+    }
+}
+
+async function update(req, res) {
+    try {
+        const bundleId = req.params.id;
+        const updatedBundleData = {
+            name: req.body.name,
+            items: req.body.items
+        };
+
+        const updatedBundle = await Bundle.findByIdAndUpdate(bundleId, updatedBundleData, { new: true });
+        res.redirect(`/bundles/${updatedBundle._id}`);
     } catch (error) {
         console.error(error);
         res.redirect(`/bundles/${req.params.id}`);

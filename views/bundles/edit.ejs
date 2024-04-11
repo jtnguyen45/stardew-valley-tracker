@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+<div class="title-container">
+    <h2><%= title %></h2>
+</div>
+
+<form action="/bundles/<%= bundle._id %>?_method=PUT" method="POST">
+    <label>Name: </label>
+    <input name="name" value="<%= item.name %>">
+    <label>Items (separated by commas):</label>
+    <textarea id="where" name="items" rows="4"><%= bundle.items.join(', ') %></textarea>
+    <input type="submit" value="Update Item">
+</form>
+
+<%- include('../partials/footer') %>

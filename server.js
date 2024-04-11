@@ -16,6 +16,7 @@ const homeRouter = require('./routes/home');
 const roomsRouter = require('./routes/rooms');
 const bundlesRouter = require('./routes/bundles');
 const itemsRouter = require('./routes/items');
+const trackersRouter = require('./routes/trackers');
 
 const app = express();
 
@@ -49,6 +50,7 @@ app.use('/home', homeRouter);
 app.use('/rooms', roomsRouter);
 app.use('/bundles', bundlesRouter);
 app.use('/items', itemsRouter);
+app.use('/trackers', trackersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
