@@ -3,6 +3,8 @@
 
 Each item entry will tell you which season the item can be grown/found in, locations you can find them, and the in-game description for them. Users will also be able to create, view, update, and delete items and bundles for full customization of their gameplay experience.
 
+View my planning on [Trello](https://trello.com/b/JRdOAja3/project-2).
+
 ![](https://github.com/jtnguyen45/stardew-valley-tracker/blob/main/public/images/demo/landingPage.png)
 
 ## Technology Used
@@ -24,6 +26,8 @@ You will be able to create an item in a form that looks like this:
 
 After you create your item, you will see options to **Edit** or **Delete** your item:
 ![](https://github.com/jtnguyen45/stardew-valley-tracker/blob/main/public/images/demo/itemDetail.png)
+
+Super simple app, with features to be added in the future. Happy farming!
 
 ## Next Steps
 - *Image Customization:* Allow users to upload their own images for items or bundles they create.
