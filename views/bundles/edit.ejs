@@ -4,12 +4,41 @@
     <h2><%= title %></h2>
 </div>
 
-<form action="/bundles/<%= bundle._id %>?_method=PUT" method="POST">
-    <label>Name: </label>
-    <input name="name" value="<%= item.name %>">
-    <label>Items (separated by commas):</label>
-    <textarea id="where" name="items" rows="4"><%= bundle.items.join(', ') %></textarea>
-    <input type="submit" value="Update Item">
-</form>
+<div class="main-bundle-container">
+    <form class="main-bundle-form" action="/bundles/<%= bundle._id %>?_method=PUT" method="POST">
+        <label>Name: </label>
+        <input name="name" value="<%= bundle.name %>">
+        <label>Bundle Room: </label>
+        <select name="bundleRoom">
+            <option value="Craft Room" <%= bundle.bundleRoom === 'Craft Room' ? 'selected' : '' %>>Craft Room</option>
+            <option value="Pantry" <%= bundle.bundleRoom === 'Pantry' ? 'selected' : '' %>>Pantry</option>
+            <option value="Bulletin Board" <%= bundle.bundleRoom === 'Bulletin Board' ? 'selected' : '' %>>Bulletin Board</option>
+            <option value="Fish Tank" <%= bundle.bundleRoom === 'Fish Tank' ? 'selected' : '' %>>Fish Tank</option>
+            <option value="Boiler Room" <%= bundle.bundleRoom === 'Boiler Room' ? 'selected' : '' %>>Boiler Room</option>
+            <option value="Vault" <%= bundle.bundleRoom === 'Vault' ? 'selected' : '' %>>Vault</option>
+            <option value="None" <%= bundle.bundleRoom === 'None' ? 'selected' : '' %>>None</option>
+        </select>
+        <label>Select the items you want to keep: </label>
+        <select name="existingItems[]" multiple>
+            <% bundle.items.forEach(item => { %>
+                <option value="<%= item._id %>" <%= bundle.items.includes(item._id.toString()) ? 'selected' : '' %>><%= item.name %></option>
+            <% }); %>
+        </select>
+        <label>Select the items you want to add: </label>
+        <select name="newItems[]" multiple>
+            <% items.forEach(item => { %>
+                <option value="<%= item._id %>"><%= item.name %></option>
+            <% }); %>
+        </select>
+        <label>Number of Items Required: </label>
+        <input type="number" name="numReq" value="<%= bundle.numReq %>">
+        <label>Reward: </label>
+        <input type="text" name="reward" value="<%= bundle.reward %>">
+        <br>
+        <input type="submit" value="Update Bundle">
+    </form>
+</div>
+
+
 
 <%- include('../partials/footer') %>

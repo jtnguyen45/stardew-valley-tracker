@@ -72,8 +72,9 @@ async function deleteBundle(req, res) {
 
 async function edit(req, res) {
     try {
-        const bundle = await Bundle.findById(req.params.id);
-        res.render('bundles/edit', {title: 'Edit Bundle', bundle});
+        const bundle = await Bundle.findById(req.params.id).populate('items');
+        const items = await Item.find();
+        res.render('bundles/edit', {title: 'Edit Bundle', bundle, items});
     } catch (error) {
         console.error(error);
         res.redirect('/bundles');
@@ -83,9 +84,19 @@ async function edit(req, res) {
 async function update(req, res) {
     try {
         const bundleId = req.params.id;
+        const bundle = await Bundle.findById(bundleId);
+
+        const selectedItems = req.body['existingItems[]'] || [];
+        const newItems = req.body['newItems[]'] || [];
+        const updatedItems = [...selectedItems, ...newItems];
+        const uniqueItems = [...new Set(updatedItems)];
+
         const updatedBundleData = {
             name: req.body.name,
-            items: req.body.items
+            bundleRoom: req.body.bundleRoom,
+            items: uniqueItems,
+            numReq: req.body.numReq,
+            reward: req.body.reward,
         };
 
         const updatedBundle = await Bundle.findByIdAndUpdate(bundleId, updatedBundleData, { new: true });

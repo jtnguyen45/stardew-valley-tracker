@@ -155,14 +155,14 @@ h2 {
   width: 100%;
 }
 
-.item-container, #new-bundle-container {
+.item-container, .main-bundle-container {
   margin: 10px 13%;
   background-image: url('/images/widgetBackground.png');
   background-size: 100% 100%;
   background-position: center;
 }
 
-.item-form, #new-bundle-form {
+.item-form, .main-bundle-form {
   display: grid;
   justify-content: center;
   grid-gap: 15px;
