@@ -6,9 +6,9 @@
 
 <div id="bundle-container">
     <img src="/images/bundles/<%= bundle.image %>" class="bundle-img">
-    <p>Name: <%= bundle.name %></p>
-    <p>Bundle Room: <%= bundle.bundleRoom %></p>
-    <p>Items:</p>
+    <p><b>Name:</b> <%= bundle.name %></p>
+    <p><b>Bundle Room:</b> <%= bundle.bundleRoom %></p>
+    <p><b>Items:</b></p>
 
     <table class="item-table">
         <tr>
@@ -42,8 +42,8 @@
         </tr>
     </table>
 
-    <p>Required: <%= bundle.numReq %></p>
-    <p>Reward: <%= bundle.reward %></p>
+    <p><b>Required:</b> <%= bundle.numReq %></p>
+    <p><b>Reward:</b> <%= bundle.reward %></p>
 
     <div class="edit-delete-container">
         <% if (user?._id.equals(bundle.user)) { %>

@@ -8,4 +8,27 @@
     <a href="/trackers/new" class="new-item-btn"><button>Add Tracker</button></a>
 </div>
 
+<div class="main-tracker-container">
+    <% trackers.forEach(function(tracker) { %>
+        <div class="tracker-container">
+            <a href="/trackers/<%= tracker._id %>">
+                <h3><%= tracker.name %></h3>
+                <% let totalItems = 0; %>
+                <% let itemsComplete = 0; %>
+                <% tracker.bundles.forEach(function(bundle) { %>
+                    <% totalItems += bundle.numReq %>
+                    <% const completionPercentage = (bundle.trackedItems.length / bundle.numReq) * 100 %>
+                    <div class="bundle-progress-container">
+                        <img src="/images/bundles/<%= bundle.image %>">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: <%= completionPercentage %>%;"></div>
+                        </div>
+                    </div>
+                <% }); %>
+                <p>Total Items in Tracker: <%= totalItems %></p>
+            </a>
+        </div>
+    <% }); %>
+</div>
+
 <%- include('../partials/footer') %>

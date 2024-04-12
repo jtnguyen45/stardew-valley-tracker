@@ -54,12 +54,18 @@ a:hover, button:hover {
   margin-right: 2vmin;
 }
 
+.navbar {
+  font-family: "Tac One", monospace, sans-serif;
+  font-size: 24px;
+}
+
 .navbar ul {
   list-style-type: none;
   margin: 0;
   padding: 0 10px;
   overflow: hidden;
   background-color: #85d7f9;
+  font-family: "Tac One", monospace, sans-serif;
 }
 
 .navbar li {
@@ -228,6 +234,12 @@ h2 {
   padding-bottom: 50px;
 }
 
+.room-container {
+  font-family: "Tac One", monospace, sans-serif;
+  font-size: 20px;
+  color: var(--dark-brown);
+}
+
 .bundle-img {
   margin-top: 30px;
 }
@@ -324,4 +336,45 @@ h2 {
   background-color: #4caf50; /* Green */
   height: 100%;
   border-radius: 3vmin;
+}
+
+.main-tracker-container {
+  margin: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.tracker-container {
+  text-align: center;
+  width: 35vmin;
+  padding: 3vmin;
+  background-color: pink;
+  border-radius: 2vmin;
+  background-image: url('/images/widgetBackground.png');
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.tracker-container a {
+  text-decoration: none;
+  color: black;
+}
+
+.tracker-container img {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.tracker-container h3 {
+  font-family: "Tac One", monospace, sans-serif;
+  font-size: 30px;
+  color: var(--dark-brown);
+  margin: 10px auto;
+}
+
+.bundle-progress-container {
+  display: flex;
+  align-items: center;
+  margin: 1vmin;
 }

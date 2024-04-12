@@ -10,7 +10,7 @@ module.exports = {
 }
 
 async function index(req, res){
-    const trackers = await Tracker.find({});
+    const trackers = await Tracker.find({}).populate('bundles');
     res.render('trackers/index', {title: 'All Trackers', trackers});
 }
 
