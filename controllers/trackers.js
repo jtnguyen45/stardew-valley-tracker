@@ -7,6 +7,8 @@ module.exports = {
     new: newTracker,
     create,
     show,
+    edit,
+    updateTracked,
 }
 
 async function index(req, res){
@@ -56,4 +58,42 @@ async function show(req, res) {
             populate: {path: 'items'}
         });
     res.render('trackers/show', {title: 'Tracker Detail', tracker});
+}
+
+async function edit(req, res) {
+    const trackerId = req.params.trackerId;
+    const bundleId = req.params.bundleId;
+    try {
+        const tracker = await Tracker.findById(trackerId)
+        .populate({
+            path: 'bundles',
+            populate: {path: 'items'}
+        });
+        const bundle = tracker.bundles.find(bundle => bundle._id == bundleId);
+        res.render('trackers/edit', {title: 'Edit Tracked Items', tracker, bundle})
+    } catch (error) {
+        console.error(error);
+        res.redirect('/trackers');
+    }
+}
+
+async function updateTracked(req, res) {
+    const trackerId = req.params.trackerId;
+    const bundleId = req.params.bundleId;
+    const selectedItems = req.body['existingItems[]'] || [];
+    
+    try {
+        const tracker = await Tracker.findById(trackerId);
+        const bundle = tracker.bundles.find(bundle => bundle._id.equals(bundleId));
+        bundle.trackedItems = selectedItems;
+        console.log('bundle.trackedItems:', bundle.trackedItems)
+        await tracker.save();
+
+        console.log('Updated trackedItems:', bundle.trackedItems);
+
+        res.redirect(`/trackers/${tracker._id}`);
+    } catch (error) {
+        console.error(error);
+        res.redirect(`/trackers/${req.params.trackerId}`);
+    }
 }

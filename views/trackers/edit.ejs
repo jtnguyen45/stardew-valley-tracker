@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+
+<div class="title-container">
+    <h2><%= title %></h2>
+</div>
+
+<div class="edit-tracker-container">
+    <form class="edit-tracker-form" action="/trackers/<%= tracker._id %>/bundles/<%= bundle._id %>/update?_method=PUT" method="POST">
+        <label>Select the items you've done: </label>
+        <select name="existingItems[]" multiple>
+            <% bundle.items.forEach(item => { %>
+                <option value="<%= item._id %>" <%= bundle.items.includes(item._id.toString()) ? 'selected' : '' %>><%= item.name %></option>
+            <% }); %>
+        </select>
+        <br>
+        <input type="submit" value="Update Bundle">
+    </form>
+</div>
+
+<%- include('../partials/footer') %>

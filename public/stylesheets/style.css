@@ -161,14 +161,14 @@ h2 {
   width: 100%;
 }
 
-.item-container, .main-bundle-container {
+.item-container, .main-bundle-container, .edit-tracker-container {
   margin: 10px 13%;
   background-image: url('/images/widgetBackground.png');
   background-size: 100% 100%;
   background-position: center;
 }
 
-.item-form, .main-bundle-form {
+.item-form, .main-bundle-form, .edit-tracker-form {
   display: grid;
   justify-content: center;
   grid-gap: 15px;
@@ -377,4 +377,12 @@ h2 {
   display: flex;
   align-items: center;
   margin: 1vmin;
+}
+
+.tracker-detail-container {
+  margin: 20px 10%;
+  padding: 30px 40px;
+  background-image: url('/images/widgetBackground.png');
+  background-size: 100% 100%;
+  background-position: center;
 }

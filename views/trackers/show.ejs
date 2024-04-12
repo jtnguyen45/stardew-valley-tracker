@@ -4,7 +4,7 @@
     <h2><%= title %></h2>
 </div>
 
-<div>
+<div class="tracker-detail-container">
     <h3><%= tracker.name %></h3>
     <table>
         <thead>
@@ -27,7 +27,7 @@
                         <% }); %>
                     </th>
                     <th><%= bundle.numReq %></th>
-                    <th>Edit</th>
+                    <!-- <th><a href="/trackers/<%= tracker._id %>/bundles/<%= bundle._id %>/edit">Edit</a></th> -->
                 </tr>
             <% }); %>
         </tbody>
